@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método CALMA - Pare de Comer por Ansiedade</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-60px) translateY(-60px); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header h2 {
+            font-size: 1.8em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .header-subtitle {
+            background: rgba(255,255,255,0.2);
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* SECTIONS */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-white {
+            background: white;
+        }
+        
+        .section-gray {
+            background: #f8f9fa;
+        }
+        
+        .section-gradient {
+            background: linear-gradient(135deg, #ffeef8 0%, #f0f8ff 100%);
+        }
+        
+        /* DORES/PROBLEMAS */
+        .problems {
+            text-align: center;
+        }
+        
+        .problems h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #e74c3c;
+            margin-bottom: 40px;
+        }
+        
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .problem-card i {
+            font-size: 3em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* SOLUÇÃO */
+        .solution {
+            text-align: center;
+        }
+        
+        .solution h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #27ae60;
+            margin-bottom: 40px;
+        }
+        
+        .method-explanation {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 30px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .method-explanation h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        
+        .calma-letters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .letter-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .letter-card .letter {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .letter-card h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        /* BENEFÍCIOS */
+        .benefits {
+            text-align: center;
+        }
+        
+        .benefits h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #8e44ad;
+            margin-bottom: 40px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid #8e44ad;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-card i {
+            font-size: 3em;
+            color: #8e44ad;
+            margin-bottom: 20px;
+        }
+        
+        /* OFERTA */
+        .offer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .offer h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+        
+        .offer-box {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 60px 40px;
+            border-radius: 30px;
+            margin: 50px auto;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .price-original {
+            font-size: 1.5em;
+            text-decoration: line-through;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .price-current {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+        
+        .payment-options {
+            margin: 30px 0;
+            font-size: 1.1em;
+        }
+        
+        /* URGÊNCIA */
+        .urgency {
+            background: #e74c3c;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+        
+        .urgency h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        /* GARANTIA */
+        .guarantee {
+            background: #27ae60;
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .guarantee i {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        /* BOTÃO CTA */
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 25px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.4em;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 30px 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button i {
+            margin-right: 10px;
+        }
+        
+        /* DEPOIMENTOS */
+        .testimonials {
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #8e44ad;
+            margin-bottom: 40px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 6em;
+            color: #ff9a9e;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #8e44ad;
+        }
+        
+        .stars {
+            color: #feca57;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ */
+        .faq {
+            text-align: center;
+        }
+        
+        .faq h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        
+        .faq-item {
+            background: white;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: #8e44ad;
+            color: white;
+            padding: 25px 30px;
+            font-weight: 600;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #9b59b6;
+        }
+        
+        .faq-answer {
+            padding: 30px;
+            text-align: left;
+            line-height: 1.8;
+            border-top: 1px solid #eee;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .header h2 {
+                font-size: 1.4em;
+            }
+            
+            .header-subtitle {
+                font-size: 1.1em;
+                padding: 15px 20px;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .problems h2,
+            .solution h2,
+            .benefits h2,
+            .testimonials h2,
+            .faq h2 {
+                font-size: 2.2em;
+            }
+            
+            .offer h2 {
+                font-size: 2.2em;
+            }
+            
+            .cta-button {
+                padding: 20px 30px;
+                font-size: 1.2em;
+                width: 90%;
+                margin: 15px 5%;
+            }
+            
+            .offer-box {
+                padding: 40px 20px;
+                margin: 30px 10px;
+            }
+            
+            .price-current {
+                font-size: 2.8em;
+            }
+        }
+        
+        /* ANIMAÇÕES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* CONTADOR REGRESSIVO */
+        .countdown {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .countdown-timer {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <h1>🌸 MÉTODO CALMA</h1>
+            <h2>Pare de Comer por Ansiedade e Reconquiste sua Autoestima em 30 Dias</h2>
+            <div class="header-subtitle">
+                ✨ O método que já transformou +500 mulheres ✨
+            </div>
+        </div>
+    </header>
+
+    <!-- PROBLEMAS/DORES -->
+    <section class="section section-white problems">
+        <div class="container">
+            <h2>Você se Reconhece em Alguma Dessas Situações?</h2>
+            <p style="font-size: 1.3em; color: #666; margin-bottom: 40px;">Se pelo menos 2 dessas situações fazem parte da sua vida, você está no lugar certo...</p>
+            
+            <div class="problems-grid">
+                <div class="problem-card fade-in">
+                    <i class="fas fa-heart-broken"></i>
+                    <h3>Come quando está ansiosa, triste ou estressada</h3>
+                    <p>Doces, salgadinhos e comfort food se tornaram seus "calmantes" emocionais.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <i class="fas fa-mirror"></i>
+                    <h3>Se critica muito quando olha no espelho</h3>
+                    <p>A voz da autocrítica é mais alta que qualquer elogio que você recebe.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <i class="fas fa-dizzy"></i>
+                    <h3>Vive com ansiedade constante</h3>
+                    <p>Seu coração acelera, suas mãos suam e você sente que não consegue controlar seus pensamentos.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <i class="fas fa-weight"></i>
+                    <h3>Tenta emagrecer mas sempre desiste</h3>
+                    <p>Cada nova dieta vira uma montanha-russa emocional que termina em frustração.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <i class="fas fa-sad-cry"></i>
+                    <h3>Se sente culpada após comer</h3>
+                    <p>Cada mordida vem acompanhada de um diálogo interno cruel e destrutivo.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <i class="fas fa-user-times"></i>
+                    <h3>Perdeu a conexão consigo mesma</h3>
+                    <p>Não lembra mais quando foi a última vez que se tratou com gentileza e amor.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px; padding: 40px; background: #ffeef8; border-radius: 20px; border-left: 5px solid #e74c3c;">
+                <h3 style="color: #e74c3c; font-size: 1.8em; margin-bottom: 20px;">💔 A Dura Realidade:</h3>
+                <p style="font-size: 1.2em; line-height: 1.8; color: #333;">
+                    <strong>Você não está falhando como pessoa.</strong> Você está presa em um ciclo viciioso que 8 em cada 10 mulheres enfrentam: 
+                    <br><br>
+                    <span style="color: #e74c3c; font-weight: 600;">Ansiedade → Alimentação Emocional → Culpa → Baixa Autoestima → Mais Ansiedade</span>
+                    <br><br>
+                    E este ciclo se repete todos os dias, sugando sua energia, sua alegria e sua autoconfiança.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÃO -->
+    <section class="section section-gradient solution">
+        <div class="container">
+            <h2>Mas E Se Eu Te Dissesse Que Existe Uma Saída?</h2>
+            <p style="font-size: 1.3em; color: #666; margin-bottom: 40px;">Um método criado especificamente para mulheres que sofrem com ansiedade e alimentação emocional...</p>
+            
+            <div class="method-explanation">
+                <h3>Apresento o MÉTODO CALMA</h3>
+                <p style="font-size: 1.2em; margin-bottom: 30px;">O único sistema que trabalha simultaneamente com sua mente, suas emoções e sua relação com a comida.</p>
+                
+                <div class="calma-letters">
+                    <div class="letter-card fade-in">
+                        <div class="letter">C</div>
+                        <h4>CONHECER</h4>
+                        <p>Seus gatilhos de ansiedade</p>
+                    </div>
+                    
+                    <div class="letter-card fade-in">
+                        <div class="letter">A</div>
+                        <h4>ACEITAR</h4>
+                        <p>E amar seu corpo atual</p>
+                    </div>
+                    
+                    <div class="letter-card fade-in">
+                        <div class="letter">L</div>
+                        <h4>LIBERTAR-SE</h4>
+                        <p>Da alimentação emocional</p>
+                    </div>
+                    
+                    <div class="letter-card fade-in">
+                        <div class="letter">M</div>
+                        <h4>MOTIVAR-SE</h4>
+                        <p>Com metas realistas</p>
+                    </div>
+                    
+                    <div class="letter-card fade-in">
+                        <div class="letter">A</div>
+                        <h4>AÇÕES</h4>
+                        <p>Diárias para transformação</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="section section-white benefits">
+        <div class="container">
+            <h2>O Que Você Vai Conseguir em 30 Dias</h2>
+            <p style="font-size: 1.3em; color: #666; margin-bottom: 40px;">Resultados reais que você vai sentir desde a primeira semana...</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <i class="fas fa-spa"></i>
+                    <h3>Controle da Ansiedade</h3>
+                    <p>Técnicas práticas para se acalmar em qualquer situação, sem depender de comida.</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <i class="fas fa-heart"></i>
+                    <h3>Autoestima Renovada</h3>
+                    <p>Pare de se criticar e desenvolva uma relação amorosa e respeitosa consigo mesma.</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Alimentação Consciente</h3>
+                    <p>Aprenda a diferença entre fome real e fome emocional, comendo com prazer e sem culpa.</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <i class="fas fa-weight-hanging"></i>
+                    <h3>Peso Natural</h3>
+                    <p>Alcance seu peso ideal naturalmente, sem dietas restritivas ou sofrimento.</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <i class="fas fa-smile-beam"></i>
+                    <h3>Bem-estar Geral</h3>
+                    <p>Durma melhor, tenha mais energia e redescubra o prazer de viver no seu corpo.</p>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <i class="fas fa-users"></i>
+                    <h3>Relacionamentos Melhores</h3>
+                    <p>Quando você se ama, seus relacionamentos também se transformam para melhor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section section-gray testimonials">
+        <div class="container">
+            <h2>O Que Nossas Clientes Estão Dizendo</h2>
+            <p style="font-size: 1.3em; color: #666; margin-bottom: 40px;">+500 mulheres já transformaram suas vidas com o Método CALMA</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Em apenas 2 semanas consegui parar de comer doces por ansiedade. Perdi 3kg sem fazer dieta maluca! O Método CALMA mudou minha vida."
+                    </div>
+                    <div class="testimonial-author">- Carla M., 34 anos, São Paulo</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Finalmente me olho no espelho com carinho. Minha autoestima aumentou 1000% e meu marido notou como estou mais feliz e confiante."
+                    </div>
+                    <div class="testimonial-author">- Ana S., 28 anos, Rio de Janeiro</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Minha ansiedade diminuiu drasticamente. Agora sei como me acalmar quando o desespero bate. É libertador!"
+                    </div>
+                    <div class="testimonial-author">- Júlia R., 41 anos, Belo Horizonte</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Depois dos 40 eu achei que nunca mais conseguiria me sentir bonita. O Método CALMA me mostrou que é possível sim!"
+                    </div>
+                    <div class="testimonial-author">- Patricia L., 43 anos, Brasília</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Parei de me comparar com outras mulheres nas redes sociais. Agora celebro meu corpo e minhas conquistas. Valeu cada centavo!"
+                    </div>
+                    <div class="testimonial-author">- Fernanda K., 31 anos, Porto Alegre</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">
+                        "Minha filha adolescente disse que eu estou mais calma e feliz. Isso não tem preço. Obrigada por me devolver a mim mesma."
+                    </div>
+                    <div class="testimonial-author">- Luciana P., 39 anos, Salvador</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="offer">
+        <div class="container">
+            <h2>🎁 Oferta Especial por Tempo Limitado</h2>
+            
+            <div class="offer-box">
+                <h3 style="margin-bottom: 30px; color: #333; font-size: 1.8em;">🌸 MÉTODO CALMA COMPLETO</h3>
+                
+                <div style="text-align: left; margin: 30px 0; font-size: 1.1em;">
+                    <h4 style="color: #8e44ad; margin-bottom: 20px; font-size: 1.3em;">🎁 O que você recebe hoje:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Método CALMA Completo (40 páginas)</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> 5 Técnicas SOS Anti-Ansiedade</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> 21 Exercícios de Autoestima</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Guia Completo: Fome Real vs Emocional</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Diário de Acompanhamento 30 Dias</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Rotina Matinal CALMA (20 min)</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Checklists e Planilhas</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Lista de Apps e Recursos</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Receitas de Chás Calmantes</li>
+                        <li style="margin: 10px 0;"><i class="fas fa-check" style="color: #27ae60; margin-right: 10px;"></i> Acesso Vitalício</li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 30px 0;">
+                    <div class="price-original">De R$ 197,00</div>
+                    <div class="price-current">R$ 29,90</div>
+                    <div class="payment-options">
+                        💳 3x de R$ 10,47 sem juros<br>
+                        💚 PIX: R$ 28,40 (5% desconto)
+                    </div>
+                </div>
+                
+                <div class="urgency">
+                    <h3>🚨 ATENÇÃO: Oferta por tempo limitado!</h3>
+                    <p>Este preço especial expira hoje às 23h59</p>
+                    <div class="countdown">
+                        <div>Restam apenas:</div>
+                        <div class="countdown-timer" id="countdown">23:59:59</div>
+                    </div>
+                </div>
+                
+                <a href="https://kiwify.app/SEULINK" class="cta-button">
+                    <i class="fas fa-heart"></i>
+                    QUERO TRANSFORMAR MINHA VIDA AGORA!
+                </a>
+                
+                <div class="guarantee">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>🛡️ Garantia Incondicional de 7 Dias</h3>
+                    <p>Teste o Método CALMA por 7 dias completos. Se não sentir diferença na sua ansiedade e autoestima, devolvemos 100% do seu dinheiro. Sem perguntas. Sem burocacia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-white faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle" style="margin-right: 10px;"></i>
+                    Como vou receber o Método CALMA?
+                </div>
+                <div class="faq-answer">
+                    Após a confirmação do pagamento, você receberá um e-mail com o link para download do material em formato HTML. Você pode acessar em qualquer dispositivo (celular, tablet, computador) e o acesso é vitalício.
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle" style="margin-right: 10px;"></i>
+                    Quanto tempo por dia preciso dedicar?
+                </div>
+                <div class="faq-answer">
+                    Apenas 20-30 minutos por dia. O método foi criado para mulheres ocupadas que não têm muito tempo livre. As práticas são simples e se encaixam facilmente na sua rotina.
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle" style="margin-right: 10px;"></i>
+                    Funciona para qualquer idade?
+                </div>
+                <div class="faq-answer">
+                    Sim! O Método CALMA foi testado e aprovado por mulheres de 18 a 65 anos. Os princípios funcionam independentemente da idade, pois trabalham com aspectos emocionais universais.
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle" style="margin-right: 10px;"></i>
+                    E se eu não conseguir seguir o método?
+                </div>
+                <div class="faq-answer">
+                    O método foi criado justamente para pessoas que já tentaram várias abordagens. Ele é flexível e compreensivo. Além disso, você tem 7 dias de garantia total para testar sem riscos.
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle" style="margin-right: 10px;"></i>
+                    Preciso fazer dieta restritiva?
+                </div>
+                <div class="faq-answer">
+                    Não! O Método CALMA não inclui dietas restritivas. Pelo contrário, ensina você a ter uma relação saudável e prazerosa com a comida, comendo de tudo com consciência e sem culpa.
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle" style="margin-right: 10px;"></i>
+                    Como funciona a garantia?
+                </div>
+                <div class="faq-answer">
+                    Você tem 7 dias para testar completamente o método. Se não ficar satisfeita, basta enviar um e-mail solicitando o reembolso e devolvemos 100% do valor pago, sem perguntas.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÚLTIMA CHAMADA -->
+    <section class="section section-gradient" style="text-align: center;">
+        <div class="container">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8em; color: #8e44ad; margin-bottom: 30px;">
+                Sua Transformação Começa Hoje
+            </h2>
+            
+            <div style="background: white; padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin: 40px 0;">
+                <p style="font-size: 1.3em; line-height: 1.8; color: #333; margin-bottom: 30px;">
+                    <strong>Imagine-se daqui a 30 dias:</strong>
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0; text-align: left;">
+                    <div>
+                        <h4 style="color: #27ae60; margin-bottom: 10px;">✨ Você se olha no espelho e sorri</h4>
+                        <p>Reconhecendo sua beleza única e se tratando com amor.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #27ae60; margin-bottom: 10px;">🍽️ Come com prazer e sem culpa</h4>
+                        <p>Sabendo distinguir fome real de emocional.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #27ae60; margin-bottom: 10px;">🧘‍♀️ Sua ansiedade está sob controle</h4>
+                        <p>Você tem ferramentas práticas para qualquer situação.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #27ae60; margin-bottom: 10px;">💪 Se sente forte e confiante</h4>
+                        <p>Irradiando uma energia positiva que todos notam.</p>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.2em; color: #e74c3c; font-weight: 600; margin: 30px 0;">
+                    Esta transformação está a apenas um clique de distância.
+                </p>
+                
+                <p style="font-size: 1.1em; color: #666; margin-bottom: 40px;">
+                    Você pode continuar como está, lutando sozinha contra a ansiedade e a alimentação emocional...
+                    <br><br>
+                    <strong>OU</strong> pode dar o primeiro passo para a mulher que você sempre sonhou ser.
+                </p>
+            </div>
+            
+            <div class="urgency" style="margin: 40px 0;">
+                <h3>⏰ ÚLTIMA CHANCE!</h3>
+                <p>O preço promocional expira em poucas horas</p>
+                <p style="font-size: 1.1em; margin-top: 15px;">Não deixe para amanhã a transformação que você pode começar hoje.</p>
+            </div>
+            
+            <a href="https://kiwify.app/SEULINK" class="cta-button" style="font-size: 1.6em; padding: 30px 60px;">
+                <i class="fas fa-sparkles"></i>
+                SIM! QUERO ME TRANSFORMAR AGORA
+            </a>
+            
+            <p style="margin-top: 30px; color: #666; font-style: italic;">
+                💖 Você merece ser feliz. Você merece se amar. Você merece uma vida plena.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Método CALMA. Todos os direitos reservados.</p>
+            <p>Este produto não substitui acompanhamento médico ou psicológico profissional.</p>
+            <p style="margin-top: 20px;">
+                <a href="mailto:contato@metodocalma.com" style="color: #ff9a9e; text-decoration: none;">
+                    📧 contato@metodocalma.com
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE -->
+    <a href="https://kiwify.app/SEULINK" class="floating-button cta-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 15px 25px; font-size: 1em; border-radius: 50px;">
+        💖 COMPRAR
+    </a>
+
+    <script>
+        // ANIMAÇÕES DE SCROLL
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                if (isElementInViewport(el) || el.getBoundingClientRect().top < window.innerHeight * 0.8) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        // CONTADOR REGRESSIVO
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const midnight = new Date();
+            midnight.setHours(23, 59, 59, 999);
+            
+            const distance = midnight.getTime() - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                countdownElement.innerHTML = 
+                    String(hours).padStart(2, '0') + ':' +
+                    String(minutes).padStart(2, '0') + ':' +
+                    String(seconds).padStart(2, '0');
+            }
+            
+            if (distance < 0) {
+                if (countdownElement) {
+                    countdownElement.innerHTML = "00:00:00";
+                }
+            }
+        }
+
+        // SMOOTH SCROLL PARA LINKS
+        function smoothScroll() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // EFEITOS HOVER NOS BOTÕES
+        function addButtonEffects() {
+            const buttons = document.querySelectorAll('.cta-button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        }
+
+        // INICIALIZAÇÃO
+        document.addEventListener('DOMContentLoaded', function() {
+            handleScrollAnimations();
+            smoothScroll();
+            addButtonEffects();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        window.addEventListener('resize', handleScrollAnimations);
+
+        // TRACKING DE EVENTOS (OPCIONAL)
+        function trackEvent(eventName, elementClicked) {
+            // Aqui você pode adicionar Google Analytics, Facebook Pixel, etc.
+            console.log('Event tracked:', eventName, elementClicked);
+        }
+
+        // ADICIONAR TRACKING AOS BOTÕES CTA
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    trackEvent('cta_click', this.innerText);
+                });
+            });
+        });
+    </script>
+
+    <!-- OPCIONAL: Google Analytics -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+
+    <!-- OPCIONAL: Facebook Pixel -->
+    <!--
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    -->
+</body>
+</html>
