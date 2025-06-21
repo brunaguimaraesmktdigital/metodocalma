@@ -3,6 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '622716013507411'); // Pixel ID configurado
+    fbq('track', 'PageView');
+    
+    // Rastrear cliques nos botões de compra
+    function trackPurchaseClick() {
+        fbq('track', 'InitiateCheckout', {
+            content_name: 'Método CALMA',
+            content_category: 'Autoajuda',
+            value: 29.90,
+            currency: 'BRL'
+        });
+    }
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=622716013507411&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <title>Método CALMA - Pare de Comer por Ansiedade</title>
     
     <!-- Google Fonts -->
@@ -816,7 +844,7 @@
                     <p>Não espere mais para se libertar da ansiedade e alimentação emocional</p>
                 </div>
                 
-                <a href="https://pay.kiwify.com.br/6lZ1Gzs" class="cta-button">
+                <a href="https://pay.kiwify.com.br/6lZ1Gzs" class="cta-button" onclick="trackPurchaseClick()">
                     <i class="fas fa-heart"></i>
                     QUERO TRANSFORMAR MINHA VIDA AGORA!
                 </a>
@@ -947,7 +975,7 @@
                 <p style="font-size: 1.1em; margin-top: 15px;">Invista em você mesma e descubra uma nova forma de viver.</p>
             </div>
             
-            <a href="https://pay.kiwify.com.br/6lZ1Gzs" class="cta-button" style="font-size: 1.6em; padding: 30px 60px;">
+            <a href="https://pay.kiwify.com.br/6lZ1Gzs" class="cta-button" style="font-size: 1.6em; padding: 30px 60px;" onclick="trackPurchaseClick()">
                 <i class="fas fa-sparkles"></i>
                 SIM! QUERO ME TRANSFORMAR AGORA
             </a>
@@ -972,7 +1000,7 @@
     </footer>
 
     <!-- BOTÃO FLUTUANTE -->
-    <a href="https://pay.kiwify.com.br/6lZ1Gzs" class="floating-button cta-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 15px 25px; font-size: 1em; border-radius: 50px;">
+    <a href="https://pay.kiwify.com.br/6lZ1Gzs" class="floating-button cta-button" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 15px 25px; font-size: 1em; border-radius: 50px;" onclick="trackPurchaseClick()">
         💖 COMPRAR
     </a>
 
